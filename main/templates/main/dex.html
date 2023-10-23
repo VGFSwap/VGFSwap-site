@@ -1,0 +1,100 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/dex.css' %}">
+
+{% endblock head %}
+
+{% block title %}$ -.-- | DEX | VGFSWAP {% endblock title %}
+
+{% block body %}
+{% include "main/navbar.html" %}
+<section class="dex-wrapper">
+    <h2>DEX - Swap</h2>
+    <section class="dex-container" id="dex">
+        <div class="dex-chart" id="dex-chart">
+        </div>
+        <div class="dex-action">
+            <div class="dex-trade">
+                <div class="dex-trade-block">
+                    <h2>Buy VGF</h2>
+                    <p>USDT Balance: <span id="dex-usdt-balance">0.00</span></p>
+                    <input type="number" oninput="calculateBuyTotal()" id="buy-price" placeholder="Enter Price in USD">
+                    <input type="number" oninput="calculateBuyTotal()" id="buy-amount" placeholder="Enter Token Amount">
+                    <p>Total Amount <span id="total-buy-amount">0.00</span> USDT</p>
+                    <a class="dex-trade-btn buy" id="dex-buy-btn" onclick="buyButtonPressed()">Buy</a>
+                    <a class="dex-buy-roller buy" id="dex-buy-roller">
+                        <div class="dex-roller"></div>
+                    </a>
+                </div>
+                <div class="dex-trade-block" id="sell-bracket">
+                    <h2>Sell VGF</h2>
+                    <p>VGF Balance: <span id="dex-token-balance">0.00</span></p>
+                    <input type="number" oninput="calculateSellTotal()" id="sell-price"
+                        placeholder="Enter Price in USD">
+                    <input type="number" oninput="calculateSellTotal()" id="sell-amount"
+                        placeholder="Enter Token Amount">
+                    <p>Total Amount <span id="total-sell-amount">0.00</span> USDT</p>
+                    <a class="dex-trade-btn sell" id="dex-sell-btn" onclick="sellButtonPressed()">Sell</a>
+                    <a class="dex-sell-roller sell" id="dex-sell-roller">
+                        <div class="dex-roller"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="dex-center-head">Order Book</div>
+            <div class="dex-stats">
+                <div class="dex-stats-block" id="buy-order-bracket">
+                    <div class="order-rollers">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="dex-stats-block" id="sell-order-bracket">
+                    <div class="order-rollers">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="orders-container">
+        <h2>Order History</h2>
+
+        <div class="orders-bracket">
+            <div class="orders-block">
+                <h3>Active Orders</h3>
+                <div class="orders-list" id="active-orders">
+                    <div class="order-item-head">
+                        <p>Timestamp</p>
+                        <p>Side</p>
+                        <p>Price</p>
+                        <p>Amount</p>
+                        <p>Completed</p>
+                        <a>Revoke</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- //----------- -->
+            <div class="orders-block">
+                <h3>Executed Orders</h3>
+                <div class="orders-list" id="executed-orders">
+                    <div class="order-item-head">
+                        <p>Timestamp</p>
+                        <p>Side</p>
+                        <p>Price</p>
+                        <p>Amount</p>
+                    </div>
+                    <!-- ------------- -->
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<script src="{% static 'main/javascript/dex.js' %}"></script>
+<script src="{% static 'main/javascript/chart.js' %}"></script>
+
+
+
+{% endblock body %}

@@ -1,0 +1,6 @@
+asgiref
+Django
+sqlparse
+typing_extensions
+tzdata
+whitenoise

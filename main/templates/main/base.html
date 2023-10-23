@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'main/images/logo-coin.png' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <link rel="stylesheet" href="{% static 'main/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/navbar.css' %}">
+    {% block head %}
+    {% endblock head %}
+    <title>
+        {% block title %} VGFSWAP - BASE-FILE {% endblock title %}
+    </title>
+</head>
+
+<body>
+    {% block body %}
+    {% endblock body %}
+
+    <div class="web-loader" id="preloader">
+        <img src="{% static 'main/images/vgf-loader.gif' %}" alt="web-loader">
+    </div>
+    <script>
+        $(document).ready(async function () {
+            await new Promise(r => setTimeout(r, 1000));
+            $("#preloader").fadeOut("slow");
+        });
+    </script>
+    <footer class="footer">
+        <p>© 2023 VGFSWAP. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'main/javascript/abis.js' %}"></script>
+    <script src="{% static 'main/javascript/bundle.js' %}"></script>
+    <script src="{% static 'main/javascript/utils.js' %}"></script>
+    <script src="{% static 'main/javascript/helpers.js' %}"></script>
+    <script src="{% static 'main/javascript/web3Bridge.js' %}"></script>
+    <script src="{% static 'main/javascript/independentWeb3.js' %}"></script>
+
+</body>
+
+</html>

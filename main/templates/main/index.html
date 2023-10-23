@@ -1,0 +1,220 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/master.css' %}">
+
+{% endblock head %}
+
+{% block title %} VGFSWAP {% endblock title %}
+
+{% block body %}
+{% include "main/navbar.html" %}
+
+<section class="cover">
+    <div class="cover-content">
+        <div class="cover-text-wrapper">
+
+            <h1 class="cover-header">Earn with VGFSWAP</h1>
+            <p class="cover-text">VGFSWAP was created by anonymous group of developers and one of
+                decentralized exchange on market with referral system up to 10 levels also
+                rank rewards and Direct Sales Volume Rewards.</p>
+            <div class="cover-action">
+                <a href="#buy" class="cover-action-btn primary">Join Position</a>
+                <a href="{% static 'main/docs/VGFSWAP-whitepaper.pdf' %}" target="_blank"
+                    class="cover-action-btn secondary">Whitepaper</a>
+                {% comment %} <a href="#buy" class="cover-action-btn secondary">Whitepaper</a> {% endcomment %}
+            </div>
+            <div class="cover-stats">
+                <div class="cover-stats-item"><img src="{% static 'main/images/coin.png' %}" alt="coinImage">Rewards
+                    upto <span>10 Levels</span></div>
+                <div class="cover-stats-item"><img src="{% static 'main/images/coin.png' %}" alt="coinImage">Buy VGF @
+                    <span id="cover-price">$ -.--</span>
+                </div>
+                <div class="cover-stats-item"><img src="{% static 'main/images/coin.png' %}" alt="coinImage">Returns
+                    <span>0.7% - 1%</span> Daily
+                </div>
+            </div><br>
+
+        </div>
+        <img src="{% static 'main/images/cover-img.png' %}" class="cover-image" alt="coverImage">
+    </div>
+</section>
+
+<section class="text-section">
+    <div class="text-row">
+        <div class="text-card">
+            <h3 class="text-card-head">HOW I GET INVOLVED?</h3>
+            <p class="text-card-text">
+                Purchase $15 worth of VGF tokens for membership and staking purposes. You can receive 10% in Direct
+                Referral Rewards and potentially earn up to 20% of the VGF farmed by your referred members. Your daily
+                rewards are contingent on your chosen package, and your rank is determined by the volume of your direct
+                sales.
+            </p>
+        </div>
+
+        <div class="text-card">
+            <h3 class="text-card-head">CHOOSE YOUR STAKING PLAN</h3>
+            <p class="text-card-text">
+                Engage in transparent staking through smart contracts, where your rewards are linked to the number of
+                VGF tokens you've staked. You will receive a daily payout from your selected pool, along with referral
+                rewards determined by the staking activity within your network.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="buy-section" id="buy">
+    <div class="buy-wrapper">
+        <div class="buy-widget">
+            <p class="buy-widget-info">Buy Amount: $15</p>
+            <div class="buy-balance-strip">
+                <p class="buy-balance">VGF: <span id="token-home-balance">0.00</span></p>
+                <p class="buy-balance"><span id="usdt-home-balance">0.00</span> :USDT</p>
+            </div>
+            <!-- <div class="buy-input">
+                <input type="number" id="buy-quantity" oninput="estimateOutTokens()" placeholder="Amount in USD">
+                <div>≈ <span id="buy-value">0.0</span> VGF</div>
+            </div> -->
+            <input type="text" id="buy-referral" placeholder="Referral Address">
+            <a class="buy-btn" id="buy-btn" onclick="buyTokens()">Buy</a>
+            <p id="already-joined">Already Joined Position</p>
+            <div class="home-roller" id="home-roller">
+                <p id="roller"></p>
+            </div>
+            <div class="buy-price-strip">
+                <p>1 USDT = <span>50</span> VGF</p>
+                <p>1 VGF = <span>0.02</span> USDT</p>
+            </div>
+        </div>
+        <div class="buy-text-side">
+            <h2 class="buy-header">Join Position</h2>
+            <p class="buy-text">
+                Unlock a world of opportunities! Start your VGFSWAP journey by investing just $15 in VGF tokens for
+                membership and staking, depending on your chosen package. This $15 in VGF tokens may be temporarily
+                locked for transaction fees and isn't transferable for staking. But here's where it gets exciting: when
+                you refer someone who stakes VGF tokens, you'll bask in the glory of 10% Direct Referral Rewards from
+                their staked amount. It's like putting your money to work while building your network!
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section class="text-section">
+
+    <div class="text-row">
+
+        <div class="text-card">
+            <h3 class="text-card-head">REFERRAL REWARDS</h3>
+            <p class="text-card-text">
+                The Reward Structure resembles the Direct Sales Bonus Commission Structure, extending rewards up to 10
+                levels deep. The program encompasses four distinct types of rewards, all seamlessly integrated into the
+                VGF Token distribution model. Its primary objective is to encourage individuals to promote the VGFSWAP
+                platform within their circles of friends, followers, and communities.
+            </p>
+        </div>
+
+        <div class="text-card">
+            <h3 class="text-card-head">RANK ACHIEVEMENT</h3>
+            <p class="text-card-text">
+                All members commence at the initial rank of BEGINNER. To advance to the next rank, you must have a
+                minimum of 5 direct referrals, each with a minimum staked amount, and meet the necessary qualifications
+                for the desired rank.
+            </p>
+        </div>
+    </div>
+
+    <div class="text-row">
+
+        <div class="text-card">
+            <h3 class="text-card-head"> DIRECT SALES REWARD </h3>
+            <p class="text-card-text">
+                Apart from earning rewards across 10 referral levels and staking, you'll also accumulate Direct Sales
+                Volume, propelling you through "Career Ranks" to recognize your outstanding accomplishments. The real
+                thrill? Each time you hit a new rank, you'll receive an exhilarating one-time bonus of VGF Tokens,
+                igniting your excitement!
+            </p>
+        </div>
+        <div class="text-card">
+            <h3 class="text-card-head"> GLOBAL SALES REWARD </h3>
+            <p class="text-card-text">
+                Just like the Direct Sales Reward, there's an exciting perk awaiting you. Once you attain the
+                prestigious title of Master Builder Staker Rank, you'll also enjoy a splendid 1% reward from the Global
+                Sales Volume. What's even more remarkable is that this Global Sales Reward will be distributed among all
+                the accomplished Master Builder Stakers, making it a truly global celebration of success!
+
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="about-section">
+    <div class="about-wrapper">
+        <div class="about-text-side">
+            <h2 class="about-header">VGFSwap Vision</h2>
+            <p class="about-text">
+                VGFSWAP is a Decentralized Exchange (DEX) developed by an anonymous creator with the vision of
+                introducing a new generation of exchanges. This exchange is designed to be highly adaptable, compatible
+                with any kind of system load, and fully secure. VGFSWAP prides itself on being user-friendly, making it
+                accessible to traders of all levels of experience. Moreover, it has been engineered to align with the
+                latest trends in the decentralized finance (DeFi) space, ensuring that it remains at the forefront of
+                the evolving DeFi landscape. In addition to its trading features, VGFSWAP offers users the option to
+                participate in staking, allowing them to lock up their tokens and earn rewards. This combination of
+                features positions VGFSWAP as a versatile and forward-looking DEX in the ever-evolving world of
+                decentralized finance.
+            </p>
+        </div>
+        <div class="about-stats">
+            <div class="about-stats-top">
+
+                <img src="{% static 'main/images/logo-coin.png' %}" alt="coinLoog">
+                <div class="stats-top-text">
+                    <div>
+                        <p>VGF</p>
+                        <h4>$0.02</h4>
+                    </div>
+                    <a href="#buy" class="stats-top-btn">Join Position</a>
+                </div>
+
+            </div>
+            <div class="stats-bottom">
+                <p>Total Supply <span id="total-supply">800,000,000 VGF</span></p>
+                <p>Circulating Supply <span id="circular">0 VGF</span></p>
+                <p>Total Burned <span id="burned">0 VGF</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- 
+
+
+<section class="text-section">
+
+    <div class="text-row">
+
+        <div class="text-card">
+            <h3 class="text-card-head">CLAIM AND EXCHANGE VGF TOKEN </h3>
+            <p class="text-card-text">
+                25 worth VGF tokens. The claim reward will be split into two portions, 70% to usdt
+                bep20 and 30% to VGF tokens. This 30% of VGF tokens in your blockchain wallet can be
+                used for transaction fee or staking. 1% in VGF token as transaction fee an every claim
+                reward from staking pool and 0.5% charges for any exchange in VGFSWAP platform. This
+                transaction fee will be applied as burning mechanism.
+            </p>
+        </div>
+
+    </div>
+
+</section> -->
+<p id="refer" style="display: none;">{{refer}}</p>
+
+<script src="{% static 'main/javascript/master.js' %}"></script>
+
+{% endblock body %}

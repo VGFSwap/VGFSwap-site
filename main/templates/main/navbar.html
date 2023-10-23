@@ -1,0 +1,54 @@
+{% load static %}
+
+<nav class="nav-wrapper" id='navbar'>
+    <div class="navbar">
+        <div class="nav-main">
+            <a href="/" class="nav-logo">
+                <img src="{% static 'main/images/logo.png' %}" alt="brandLogo">
+            </a>
+            <div class="nav-menu">
+                <a id="nav-home" href="/" class="nav-menu-item"><i class="ri-home-2-line"></i> Home</a>
+                <a id="nav-stake" href="/stake/" class="nav-menu-item"><i class="ri-door-lock-line"></i> Stake</a>
+                <a id="nav-dex" href="/dex/" class="nav-menu-item"><i class="ri-exchange-line"></i> Dex</a>
+                <a id="nav-user" href="/user/" class="nav-menu-item"><i class="ri-user-smile-line"></i> User</a>
+            </div>
+        </div>
+        <div class="nav-action">
+            <a href="/dex/" class="nav-price"><img src="{% static 'main/images/logo-coin.png' %}" alt="coinImage"><span id="nav-price">$ -.--</span></a>
+            <a class="connect-wallet-btn"  id="connect-wallet-btn" onclick="openWallet()"><i class="ri-wallet-3-fill"></i> Connect Wallet</a>
+        </div>
+    </div>
+</nav>
+
+
+<section class="wallet-list-wrapper" id="wallet-container">
+    <div class="wallet-box">
+        <h2>Select Wallet</h2>
+        <ul class="wallet-list">
+            <li id="metamask" class="wallet-list-item" onclick="web3App('metamask', true)"><img
+                    src="{% static 'main/images/wallet-icons/metamask.png' %}" alt="walletIcon"> Metamask Wallet</li>
+            <li id="walletconnect" class="wallet-list-item" onclick="web3App('walletconnect', false)"><img
+                    src="{% static 'main/images/wallet-icons/walletConnect.png' %}" alt="walletIcon"> WalletConnect</li>
+            <li id="trustwallet" class="wallet-list-item" onclick="web3App('trustwallet', true)"><img
+                    src="{% static 'main/images/wallet-icons/trustWallet.png' %}" alt="walletIcon"> Trust Wallet</li>
+            <li id="coinbase" class="wallet-list-item" onclick="web3App('coinbase', true)"><img
+                    src="{% static 'main/images/wallet-icons/coinbase.png' %}" alt="walletIcon"> Coinbase Wallet</li>
+            <li id="close" class="wallet-list-item" onclick="closeWallet()"><img
+                    src="{% static 'main/images/wallet-icons/close.png' %}" alt="walletIcon">
+                Close</li>
+        </ul>
+    </div>
+</section>
+
+
+<div class="wallet-disconnect" id="wallet-disconnect">
+    <p onclick="disconnectWallet()">Disconnect</p>
+    <small id="close-dis" onclick="closeWalletDis()">Close</small>
+</div>
+
+<div class="globalMessage info" id="global-message">
+    <p id="info"></p>
+</div>
+<div class="globalMessage error" id="global-error">
+    <p id="error"></p>
+</div>

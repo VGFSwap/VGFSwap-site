@@ -1,0 +1,218 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/stake.css' %}">
+
+{% endblock head %}
+
+{% block title %} STAKE | VGFSWAP {% endblock title %}
+
+{% block body %}
+{% include "main/navbar.html" %}
+
+<section class="stake-cover">
+    <div>
+        <h2 class="stake-header">Stake and Earn</h2>
+        <p class="stake-text">
+            All allocated VGF tokens
+            are proportionally distributed through the Personal Staking Pool. Proportionality is
+            determined by the amount of VGF tokens that a person stakes.
+        </p>
+    </div>
+</section>
+<section class="stake-wrapper">
+    <div class="stake-plan-list">
+        <div class="stake-plan">
+            <div class="stake-plan-top">
+                <img src="{% static 'main/images/logo-coin.png' %}" alt="stakeLogo">
+                <div>
+                    <p>VGF180</p>
+                    <span>Stake VGF - Earn VGF</span>
+                    <small>Stake Period: 180 Days</small>
+                </div>
+            </div>
+            <div class="stake-return">
+                <p>Daily Rewards</p>
+                <p>0.7%</p>
+            </div>
+            <div class="stake-stats">
+                <p>Staked: <span id="staked-1">0.00</span> VGF</p>
+                <p>Earnable: <span id="earnable-1">0.00</span> VGF</p>
+                <p>Withdrawable: <span id="withdrawable-1">0.00</span> VGF</p>
+            </div>
+            <div class="stake-action">
+                <a class="stake-btn" onclick="showStakePrompt(180)">Add Stake</a>
+                <a class="withdraw-btn" onclick="swapToUSDT(0)">Withdraw</a>
+            </div>
+        </div>
+        <div class="stake-plan">
+            <div class="stake-plan-top">
+                <img src="{% static 'main/images/logo-coin.png' %}" alt="stakeLogo">
+                <div>
+                    <p>VGF365</p>
+                    <span>Stake VGF - Earn VGF</span>
+                    <small>Stake Period: 365 Days</small>
+                </div>
+            </div>
+            <div class="stake-return">
+                <p>Daily Rewards</p>
+                <p>1%</p>
+            </div>
+            <div class="stake-stats">
+                <p>Staked: <span id="staked-2">0.00</span> VGF</p>
+                <p>Earnable: <span id="earnable-2">0.00</span> VGF</p>
+                <p>Withdrawable: <span id="withdrawable-2">0.00</span> VGF</p>
+            </div>
+            <div class="stake-action">
+                <a class="stake-btn" onclick="showStakePrompt(365)">Add Stake</a>
+                <a class="withdraw-btn" onclick="swapToUSDT(1)">Withdraw</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="all-staking-wrapper">
+    <h2 class="all-staking-header">All Stakings</h2>
+    <div class="all-staking-list" id="all-staking-list">
+        <div>Connect Wallet First</div>
+    </div>
+</section>
+
+
+<section class="claim-report-section">
+    <h2 class="claim-header">Claim Reports</h2>
+    <div class="report-list" id="report-list">
+        <div>Connect Wallet First</div>
+    </div>
+</section>
+
+<section class="process-section">
+    <h2 class="process-header">Staking Process</h2>
+    <div class="process-wrapper">
+        <div class="process-item">
+            <div class="process-arrow"></div>
+            <p class="process-step">Step 1</p>
+            <p class="process-text">
+                Acquire a $15 worth of VGFswap tokens to secure your membership position.
+            </p>
+        </div>
+        <div class="process-item">
+            <div class="process-arrow"></div>
+            <p class="process-step">Step 2</p>
+            <p class="process-text">
+                Stake your VGFSwap tokens and watch your rewards grow daily.
+            </p>
+        </div>
+        <div class="process-item">
+            <div class="process-arrow"></div>
+            <p class="process-step">Step 3</p>
+            <p class="process-text">
+                Enjoy daily rewards for your loyalty to VGFswap.
+            </p>
+        </div>
+        <div class="process-item">
+            <div class="process-arrow"></div>
+            <p class="process-step">Step 4</p>
+            <p class="process-text">
+                Easily swap your tokens for USDT within our decentralized
+                exchange (DEX).
+            </p>
+        </div>
+        <div class="process-item">
+            <p class="process-step">Step 5</p>
+            <p class="process-text">
+                Elevate your status and qualify for rank rewards by referring at least 5 new members.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="text-section">
+    <div class="text-row">
+        <div class="text-card">
+            <h3 class="text-card-head">Unlock Exclusive Benefits</h3>
+            <p class="text-card-text">
+                Begin your VGFswap journey by acquiring $15 worth of VGFswap tokens, which grants you a coveted
+                membership
+                position. This position is your key to accessing a multitude of exciting benefits and rewards within our
+                vibrant community.
+            </p>
+        </div>
+
+        <div class="text-card">
+            <h3 class="text-card-head">Boost Your Earnings</h3>
+            <p class="text-card-text">
+                Elevate your crypto earnings by staking VGFSwap tokens. As you stake, you'll witness your rewards
+                accumulating daily. This means that your crypto holdings will grow steadily, enhancing your financial
+                portfolio with each passing day.
+            </p>
+        </div>
+    </div>
+    <div class="text-row">
+
+        <div class="text-card">
+            <h3 class="text-card-head">Daily Delights</h3>
+            <p class="text-card-text">
+                At VGFswap, we value your commitment and loyalty. To show our appreciation, we offer daily rewards to
+                our
+                dedicated community members. These rewards are our way of saying thank you for being a part of the
+                VGFswap
+                family.
+            </p>
+        </div>
+
+        <div class="text-card">
+            <h3 class="text-card-head">Seamless Trading</h3>
+            <p class="text-card-text">
+                Experience the ease of trading within our community-driven decentralized exchange (DEX). With this
+                platform,
+                you can effortlessly swap your tokens for USDT and actively participate in the dynamic VGFswap
+                ecosystem.
+                Take advantage of the flexibility and convenience that our DEX provides.
+            </p>
+        </div>
+    </div>
+    <div class="text-row">
+
+        <div class="text-card">
+            <h3 class="text-card-head">Rise in Rank</h3>
+            <p class="text-card-text">
+                Take your involvement with VGFswap to the next level by referring at least 5 new members to our
+                community.
+                By doing so, not only do you elevate your status within the VGFswap network, but you also become
+                eligible
+                for exclusive rank rewards. Join us in building a stronger VGFswap community and enjoy the benefits of
+                your
+                active participation. Your journey towards higher ranks begins here!
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="stake-prompts" id="stake-prompt">
+    <div class="stake-prompt-box">
+        <h2>Enter Stake Amount</h2>
+        <p class="prompt-balance">USDT Balance: <span id="usdt-stake-balance">0.00</span></p>
+        <p class="prompt-text">Stake Plan: <span id="stake-plan"></span> Days</p>
+
+        <div class="stake-input">
+            <input type="number" id="stake-amount" placeholder="Stake Amount">
+        </div>
+        <div class="prompt-action-wrapper">
+            <a class="prompt-action-primary" id="stake-action-btn" onclick="stake()">Stake</a>
+            <a class="prompt-roller" id="prompt-roller">
+                <div></div>
+            </a>
+            <a class="prompt-action-secondary" onclick="hideStakePrompt()">Back</a>
+        </div>
+    </div>
+</section>
+
+
+<script src="{% static 'main/javascript/stake.js' %}"></script>
+
+{% endblock body %}

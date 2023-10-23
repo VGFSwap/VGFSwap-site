@@ -1,0 +1,110 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/user.css' %}">
+
+{% endblock head %}
+
+{% block title %} USER | VGFSWAP {% endblock title %}
+
+{% block body %}
+{% include "main/navbar.html" %}
+<section class="user-container">
+    <div class="user-box" id="user-join-text">
+        <p>Join Positon to Access Dashbaord</p>
+        <a href="/#buy" class="join-btn">Join Now</a>
+    </div>
+    <div class="user-box" id="user-box">
+        <h2>Dashboard</h2>
+        <div class="user-top">
+            <div>
+                <p>Asset</p>
+                <p><span id="usdt-balance">0.00</span> USDT</p>
+            </div>
+            <img src="{% static 'main/images/white-hat.png' %}" alt="assetsImage" class="assets-image">
+        </div>
+        <div class="user-mid">
+            <a href="/dex/" class="user-nav">
+                <i class="ri-exchange-line"></i>
+                Trade
+            </a>
+            <a href="/stake/" class="user-nav">
+                <i class="ri-money-dollar-circle-line"></i>
+                Stake
+            </a>
+            <a class="user-nav" onclick="copyReferURL()">
+                <i class="ri-file-copy-line"></i>
+                Refer Code
+            </a>
+        </div>
+        <div class="user-stats">
+            <div class="user-stat-item">
+                <div>
+                    <img src="{% static 'main/images/coin.png' %}" alt="coinImage">
+                    BNB Balance
+                </div>
+                <span id="bnb-balance">0.00</span>
+            </div>
+            <div class="user-stat-item">
+                <div>
+                    <img src="{% static 'main/images/logo-coin.png' %}" alt="coinImage">
+                    VGF Balance
+                </div>
+                <span id="token-balance">0.00</span>
+            </div>
+            <div class="user-stat-item">
+                <div>
+                    <img src="{% static 'main/images/logo-coin.png' %}" alt="coinImage">
+                    Staked Amount
+                </div>
+                <span id="staked-amount">0.00</span>
+            </div>
+            <div class="user-stat-item">
+                <div>
+                    <img src="{% static 'main/images/logo-coin.png' %}" alt="coinImage">
+                    Rewards Earned
+                </div>
+                <span id="rewards-amount">0.00</span>
+            </div>
+            <div class="user-stat-item">
+                <div>
+                    <img src="{% static 'main/images/logo-coin.png' %}" alt="coinImage">
+                    Group Sales
+                </div>
+                <span id="group-sales">0.00</span>
+            </div>
+        </div>
+        <div class="user-rank">
+            <div class="user-rank-bar">
+                <div class="user-rank-stage rank-active">0<div class="rank-arrow"></div>
+                </div>
+                <div class="user-rank-stage">1<div class="rank-arrow"></div>
+                </div>
+                <div class="user-rank-stage">2<div class="rank-arrow"></div>
+                </div>
+                <div class="user-rank-stage">3<div class="rank-arrow"></div>
+                </div>
+                <div class="user-rank-stage">4<div class="rank-arrow"></div>
+                </div>
+                <div class="user-rank-stage">5</div>
+            </div>
+            <div class="user-rank-name">
+                <h2 id="user-rank">Beginner</h2>
+                <a class="rank-reward-btn">Claim Rewards</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <section class="claim-report-section" id="refer-box">
+        <h2 class="why-header">Referred Users</h2>
+        <div class="report-list" id="user-list">
+            <p>Connect Wallet First</p>
+        </div>
+    </section>
+</section>
+<script src="{% static 'main/javascript/user.js' %}"></script>
+
+{% endblock body %}
